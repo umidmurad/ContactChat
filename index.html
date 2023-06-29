@@ -6,36 +6,46 @@
     <link rel="stylesheet" href="mainstyle.css" />
   </head>
   <body>
-    <h1 style="text-align: center">Live Chat</h1>
+    <h1 style="text-align: center; color: white">Send me a Message!</h1>
+
     <div class="container">
       <div class="chat">
-        <div class="chat-area">
-          <div class="chat-text">
-            <!-- Text Field -->
-          </div>
-        </div>
-
-        <div class="user-message">
-          <!-- <input
+        <div class="info">
+          <input
             type="text"
-            id="message"
-            name="message"
-            placeholder="Type Message"
-            class="message"
-          /> -->
+            name="name"
+            id="name"
+            class="input"
+            placeholder="Your name"
+            required
+          />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            class="input"
+            placeholder="Your email"
+          />
+        </div>
+        <h3 style="text-align: center">What do you want to tell me?</h3>
+        <div class="user-message">
           <textarea
             name="message"
             id="message"
             cols="10"
             rows="5"
-            placeholder="Type Message"
+            placeholder="Your lovely words goes here"
             class="message"
+            required
           ></textarea>
         </div>
         <div class="buttondiv">
-          <button>Send</button>
+          <button id="button">Send</button>
         </div>
       </div>
     </div>
   </body>
+  <footer>
+    <script src="main.js"></script>
+  </footer>
 </html>

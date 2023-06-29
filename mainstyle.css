@@ -1,17 +1,20 @@
 body {
   background-color: black;
-  color: white;
+  color: black;
   font-size: medium;
   font-family: "Courier New", Courier, monospace;
   justify-content: center;
 }
 
+p {
+  color: black;
+}
 .container {
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .chat {
@@ -20,17 +23,6 @@ body {
   overflow: hidden;
   background-color: white;
   border: 2px solid red;
-}
-
-.chat-area {
-  height: 400px;
-  overflow-y: scroll;
-  padding: 20px;
-}
-
-.chat-text {
-  display: flex;
-  flex-direction: row;
 }
 
 .user-message {
@@ -51,6 +43,28 @@ body {
   height: 100%;
   border-radius: 10px;
   margin: 0 auto;
+}
+
+/* Information */
+.info {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
 }
 
 /* Button */
