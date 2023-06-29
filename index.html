@@ -6,42 +6,53 @@
     <link rel="stylesheet" href="mainstyle.css" />
   </head>
   <body>
-    <h1 style="text-align: center; color: white">Send me a Message!</h1>
+    <h1 class="mid">Send me a Message!</h1>
 
     <div class="container">
       <div class="chat">
-        <div class="info">
-          <input
-            type="text"
-            name="name"
-            id="name"
-            class="input"
-            placeholder="Your name"
-            required
-          />
-          <input
-            type="text"
-            name="email"
-            id="email"
-            class="input"
-            placeholder="Your email"
-          />
-        </div>
-        <h3 style="text-align: center">What do you want to tell me?</h3>
-        <div class="user-message">
-          <textarea
-            name="message"
-            id="message"
-            cols="10"
-            rows="5"
-            placeholder="Your lovely words goes here"
-            class="message"
-            required
-          ></textarea>
-        </div>
-        <div class="buttondiv">
-          <button id="button">Send</button>
-        </div>
+        <form action="contact.php" method="POST">
+          <div class="info">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="input"
+              placeholder="Your name"
+              required
+            />
+            <input
+              type="text"
+              name="email"
+              id="email"
+              class="input"
+              placeholder="Your email"
+            />
+          </div>
+          <h3 class="mid">What do you want to tell me?</h3>
+          <div class="user-message">
+            <textarea
+              name="message"
+              id="message"
+              cols="10"
+              rows="5"
+              placeholder="Your lovely words go here"
+              class="message"
+              required
+            ></textarea>
+          </div>
+          <div class="buttondiv">
+            <button type="submit" id="button">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="mid">
+      <h3>Built in Progress</h3>
+      <div class="newtons-cradle">
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
       </div>
     </div>
   </body>
