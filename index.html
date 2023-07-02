@@ -10,7 +10,11 @@
 
     <div class="container">
       <div class="chat">
-        <form action="contact.php" method="POST">
+        <form
+          target="contactFrame"
+          action="https://umiddev.000webhostapp.com/contact.php"
+          method="POST"
+        >
           <div class="info">
             <input
               type="text"
@@ -46,6 +50,21 @@
         </form>
       </div>
     </div>
+    <iframe
+      id="contactFrame"
+      name="contactFrame"
+      style="display: none"
+    ></iframe>
+
+    <script>
+      // Handle the response from the iframe
+      function handleResponse(response) {
+        // Update the page with the response
+        document.getElementById("response").innerHTML = response;
+      }
+    </script>
+
+    <div id="response" class="mid">hi</div>
     <div class="mid">
       <h3>Built in Progress</h3>
       <div class="newtons-cradle">
@@ -56,7 +75,4 @@
       </div>
     </div>
   </body>
-  <footer>
-    <script src="main.js"></script>
-  </footer>
 </html>

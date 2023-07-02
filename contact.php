@@ -1,4 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin: https://umid.dev/ContactChat/");
+header("Access-Control-Allow-Methods: GET, POST");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Credentials: true");
+
 function sanitizeInput($input)
 {
     // Sanitize the input to prevent any malicious content
@@ -15,7 +20,7 @@ if ($_POST) {
 
     // Validate email address
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "The email address is invalid.";
+        $response = "The email address is invalid.";
     } else {
         $toEmail = "umid.murad@hotmail.com"; // Replace with the recipient email address
         $fromEmail = $email;
@@ -35,11 +40,13 @@ if ($_POST) {
 
         // Send the email
         if (mail($toEmail, $subject, $emailBody, $headers)) {
-            echo '<script>alert("Your contact information is received successfully.")</script>';
+            $response = "Your contact information is received successfully.";
         } else {
-            echo '<script>alert("There was an error attempting to send your information")</script>';
+            $response = "There was an error attempting to send your information.";
         }
     }
-}
 
+    // Send the response back to the parent window
+    echo '<script>window.parent.handleResponse("' . addslashes($response) . '");</script>';
+}
 ?>
