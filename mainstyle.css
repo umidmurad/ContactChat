@@ -155,14 +155,14 @@ p {
   transition: all 0.3s 0.08s linear;
   top: 50%;
   left: 50%;
-  width: 9em;
+  width: 7em;
   height: 3em;
   transform: translate(-50%, -50%);
 }
 
 .homeButton:hover .border {
   display: block;
-  width: 9.9em;
+  width: 8.9em;
   height: 3.7em;
 }
 
