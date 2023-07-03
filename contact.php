@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: https://umid.dev");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Credentials: true");
@@ -12,7 +12,9 @@ function sanitizeInput($input)
     return $sanitizedInput;
 }
 
-if ($_POST) {
+$response = array();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve and sanitize form inputs
     $name = sanitizeInput($_POST["name"]);
     $email = sanitizeInput($_POST["email"]);
@@ -20,7 +22,7 @@ if ($_POST) {
 
     // Validate email address
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $response = "The email address is invalid.";
+        $response['message'] = "The email address is invalid.";
     } else {
         $toEmail = "umid.murad@hotmail.com"; // Replace with the recipient email address
         $fromEmail = $email;
@@ -40,13 +42,16 @@ if ($_POST) {
 
         // Send the email
         if (mail($toEmail, $subject, $emailBody, $headers)) {
-            $response = "Your contact information is received successfully.";
+            $response['message'] = "Your contact information is received successfully.";
         } else {
-            $response = "There was an error attempting to send your information.";
+            $response['message'] = "There was an error attempting to send your information.";
         }
     }
-
-    // Send the response back to the parent window
-    echo '<script>window.parent.handleResponse("' . addslashes($response) . '");</script>';
+} else {
+    $response['message'] = "Invalid request method.";
 }
+
+// Send the response as JSON
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>
