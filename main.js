@@ -1,21 +1,22 @@
 document
   .getElementById("contact-form")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+    event.preventDefault();
 
     var formData = new FormData(this); // Get the form data
 
     var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object
-    xhr.open("POST", "https://umiddev.000webhostapp.com/contact.php", true); // Replace with the actual URL of your PHP script
+    xhr.open("POST", "https://umiddev.000webhostapp.com/contact.php", true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           // Request successful
           var response = xhr.responseText; // Get the response from the PHP script
-          alert(response); // Display the response message
+          document.getElementById("response").textContent = response; // Update the content of the element with id="response"
         } else {
           // Request failed
-          alert("There was an error attempting to send your information.");
+          document.getElementById("response").textContent =
+            "There was an error attempting to send your information.";
         }
       }
     };
